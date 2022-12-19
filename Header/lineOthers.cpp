@@ -155,10 +155,10 @@ void ALG::gridLine2D::sortCrossSectionPts(double sign) {
             for (auto & cross_section_pt : cross_section_pts) {
                 printf("(x, y) = (%f, %f)\n", cross_section_pt[0], cross_section_pt[1]);
             }
-//            cross_section_pts.erase(cross_section_pts.begin());
-            printError("ALG::gridLine2D::sortCrossSectionPts",
-                       "size of cross_section_pts (which is %d) is not even number",
-                       cross_section_pts.size());
+            cross_section_pts.erase(cross_section_pts.begin());
+//            printError("ALG::gridLine2D::sortCrossSectionPts",
+//                       "size of cross_section_pts (which is %d) is not even number",
+//                       cross_section_pts.size());
         }
     } else {
         std::sort(cross_section_pts.begin(), cross_section_pts.end());
@@ -266,7 +266,7 @@ void ALG::gridLine2D::makeAxialLine(double h) {
 
     if (axial_lines.size() > 1) {
         for (int i = 0; i < axial_lines.size() - 1; ++i) {
-            if ((axial_lines[i].getAnEnd() - axial_lines[i + 1].getStart()).norm() < 1.0E-10) {
+            if ((axial_lines[i].getAnEnd() - axial_lines[i + 1].getStart()).norm() < 1e-10) {
                 axial_lines[i + 1].getBoundaries()[0] = axial_lines[i].getBoundaries()[1];
             }
         }
@@ -288,14 +288,14 @@ void ALG::gridLine2D::makeAxialLine(double h) {
 
     for (auto &i: axial_lines) {
         if (!i.getPts().empty()) {
-            if ((*(i.getBoundaries()[0]) - *(i.getPts().front())).norm() < h / 20.0) {
+            if ((*(i.getBoundaries()[0]) - *(i.getPts().front())).norm() < h / 2e1) {
                 i.getPts().front()->setIdx(-3);
                 i.getPts().erase(i.getPts().begin());
             }
             if (i.getPts().empty()) {
                 continue;
             }
-            if ((*(i.getBoundaries()[1]) - *(i.getPts().back())).norm() < h / 20.0) {
+            if ((*(i.getBoundaries()[1]) - *(i.getPts().back())).norm() < h / 2e1) {
                 i.getPts().back()->setIdx(-3);
                 i.getPts().pop_back();
             }

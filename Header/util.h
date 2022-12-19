@@ -23,6 +23,7 @@
 #include <utility>
 #include <deque>
 #include <cstdarg>
+#include <random>
 
 #ifndef UNITVALUE
 #define UNITVALUE 1.0000000000000000E0

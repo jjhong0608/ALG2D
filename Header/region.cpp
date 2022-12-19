@@ -107,21 +107,92 @@ void ALG::region::writeRegion(std::ofstream &f, std::deque<boundaryPoint> *bound
     std::cout << "ymin = " << ymin << ", ymax = " << ymax << "\n";
     std::cout << "hx = " << hx << ", hy = " << hy << "\n\n";
 
-//    auto xvec0 = std::vector<double>(), yvec0 = std::vector<double>();
-//    auto xvec1 = std::vector<double>(), yvec1 = std::vector<double>();
-//    auto xvec2 = std::vector<double>(), yvec2 = std::vector<double>();
+    auto xvec0 = std::vector<double>(), yvec0 = std::vector<double>();
+    auto xvec1 = std::vector<double>(), yvec1 = std::vector<double>();
+    auto xvec2 = std::vector<double>(), yvec2 = std::vector<double>();
 
+//    auto xvec0{std::vector<double>{
+//            30.02695215478053, 30.071127162890576, 30.12547674631095, 30.187705708209894, 30.256537878024204,
+//            30.33113511875069, 30.41089489735123, 30.495358333760368, 30.584161600175857, 30.677007518931653,
+//            30.773647722293866, 30.87387081745252, 30.977494191219762, 31.08435813510233, 31.19432151166049,
+//            31.307258480128173, 31.42305597124594, 31.541611705203593, 31.662832611758766, 31.786633553766094,
+//            31.912936283396743, 32.041668579436376, 32.17276352735063, 32.306158913244346, 32.44179670965294,
+//            32.57962263609805, 32.71958578105265, 32.861638274756935, 33.005735004457605, 33.151833365284524,
+//            33.29989304125615, 33.44987581190815, 33.601745380834316, 33.75546722306324, 33.911008448704635,
+//            34.06833768071247, 34.22742494494943, 34.3882415710137, 34.550760102517074, 34.714954215693304,
+//            34.88079864537282, 35.048269117493, 35.21734228742411, 35.387995683485514, 35.56020765510671,
+//            35.73395732515596, 35.90922454601782, 36.08598985905068, 36.264234457099064, 36.443940149772544,
+//            36.62508933123549, 36.80766495028042, 36.99165048248173, 37.17702990424892, 37.36378766861644,
+//            37.55190868262455, 37.74137828615989, 37.932182232137606, 38.12430666791807, 38.31773811786176,
+//            38.5124634669345, 38.70846994528383, 38.905745113713984, 39.10427684999373, 39.30405333593695,
+//            39.50506304520121, 39.70729473175397, 39.910737418960515, 40.11538038925143, 40.32121317433078,
+//            40.528225545889526, 40.73640750679109, 40.945749282699055, 41.15624131411889, 41.36787424882798,
+//            41.58063893467009, 41.79452641269198, 42.0095279106019, 42.22563483653082, 42.44283877307865,
+//            42.66113147162913, 42.880504846918114, 43.10095097184083, 43.32246207248501, 43.545030523377406,
+//            43.76864884293212, 43.99330968908996, 44.21900585513869, 44.44573026570458, 44.67347597290661,
+//            44.902236152664806, 45.132004101154955, 45.36277323140236, 45.59453707000776, 45.827289253998956,
+//            46.06102352780196, 46.29573374032595, 46.531413842156724, 46.768057882853455, 47.00566000834388,
+//            47.24421445841355, 47.483715564284694, 47.72415774628075, 47.96553551157274, 48.207843452003594,
+//            48.45107624198752, 48.69522863648065, 48.94029546902016, 49.18627164982887, 49.43315216398257,
+//            49.68093206963747, 49.929606496315195, 50.17917064324298, 50.42961977774697, 50.68094923369621,
+//            50.93315440999553, 51.18623076912522, 51.440173835725744, 51.69497919522578, 51.95064249251167,
+//            52.20715943063701, 52.46452576957065, 52.72273732498166, 52.98178996706001, 53.24167961937141,
+//            53.50240225774532, 53.7639539091947, 54.026330650866505, 54.28952860902163, 54.55354395804348,
+//            54.81837291947399, 55.084011761076184, 55.35045679592233, 55.61770438150681, 55.88575091888293,
+//            56.15459285182268, 56.424226665998816, 56.69464888818851, 56.96585608549772, 57.23784486460576,
+//            57.510611871029276, 57.78415378840501, 58.0584673377909, 58.33354927698466, 58.60939639985949,
+//            58.886005535716265, 59.163373548651805, 59.44149733694252, 59.720373832443144, 60.0
+//    }};
+
+
+//    std::random_device rd;
+//    std::mt19937 gen(rd());
+//    std::uniform_real_distribution<> dis(-hx * 3.0 / 8.0, hx * 3.0 / 8.0);
 
     // hx 간격으로 vector를 구성 (x-방향 grid)
+//    while (i < double(30) + hx / 8) {
     while (i < xmax + hx / 8) {
+//        if (isnegative(i - HALFVALUE)) {
+//            xvec.emplace_back(std::stod(std::to_string(2 * i * i)));
+//        } else if (ispositive(i - HALFVALUE)) {
+//            xvec.emplace_back(std::stod(std::to_string(-2 * (i - UNITVALUE) * (i - UNITVALUE) + UNITVALUE)));
+//        } else {
+//            xvec.emplace_back(std::stod(std::to_string(i)));
+//        }
+//        xvec.emplace_back(i + dis(gen));
+
         xvec.emplace_back(std::stod(std::to_string(i)));
         i += hx;
     }
+
+//    for (const auto &item: xvec0) {
+//        xvec.emplace_back(item);
+//    }
+
+//    xvec.emplace_back(hx * HALFVALUE);
+//    xvec.emplace_back(UNITVALUE - hx * HALFVALUE);
+//    xvec.emplace_back(hx * HALFVALUE * HALFVALUE);
+//    xvec.emplace_back(UNITVALUE - hx * HALFVALUE * HALFVALUE);
+//    std::sort(xvec.begin(), xvec.end());
     // hy 간격으로 vector를 구성 (y-방향 grid)
     while (j < ymax + hy / 8) {
+//        if (isnegative(j - HALFVALUE)) {
+//            yvec.emplace_back(std::stod(std::to_string(2 * j * j)));
+//        } else if (ispositive(j - HALFVALUE)) {
+//            yvec.emplace_back(std::stod(std::to_string(-2 * (j - UNITVALUE) * (j - UNITVALUE) + UNITVALUE)));
+//        } else {
+//            yvec.emplace_back(std::stod(std::to_string(j)));
+//        }
+//        yvec.emplace_back(j + dis(gen));
+
         yvec.emplace_back(std::stod(std::to_string(j)));
         j += hy;
     }
+//    yvec.emplace_back(hy * HALFVALUE);
+//    yvec.emplace_back(UNITVALUE - hy * HALFVALUE);
+//    yvec.emplace_back(hy * HALFVALUE * HALFVALUE);
+//    yvec.emplace_back(UNITVALUE - hy * HALFVALUE * HALFVALUE);
+//    std::sort(yvec.begin(), yvec.end());
 
     // for non-uniform BFS flow
 //    for (auto &item: yvec) {
@@ -146,45 +217,45 @@ void ALG::region::writeRegion(std::ofstream &f, std::deque<boundaryPoint> *bound
 //    std::sort(yvec.begin(), yvec.end());
 
 
-//    auto theta = std::vector<double>();
-//    double st{-5.0E-1}, ed{5.0E-1}, pp{st};
-//    theta.emplace_back(-M_PI);
+    auto theta = std::vector<double>();
+    double st{-5.0E-1}, ed{5.0E-1}, pp{st};
+    theta.emplace_back(-M_PI);
 //    int tempidx{};
 
-//    if (name == "region5") {
-//        while (theta.back() + M_PI / 90 < 1e-10) {
-//            theta.emplace_back(theta.back() + M_PI / 90);
-//        }
-//
-//        for (const auto &item: theta) {
-//            xvec1.emplace_back(5.0E-1 * std::cos(item));
-//            yvec1.emplace_back(5.0E-1 * std::cos(item));
-//        }
-//
-//        for (auto &item: xvec) {
-//            if (item < -5.0E-1 - 1e-10) {
-//                xvec0.emplace_back(item);
-//            } else if (item > 5.0E-1 + 1e-10) {
-//                xvec2.emplace_back(item);
-//            }
-//        }
-//        for (auto &item: yvec) {
-//            if (item < -5.0E-1 - 1e-10) {
-//                yvec0.emplace_back(item);
-//            } else if (item > 5.0E-1 + 1e-10) {
-//                yvec2.emplace_back(item);
-//            }
-//        }
-//
-//        xvec = xvec0;
-//        yvec = yvec0;
-//
-//        xvec.insert(xvec.end(), xvec1.begin(), xvec1.end());
-//        yvec.insert(yvec.end(), yvec1.begin(), yvec1.end());
-//
-//        xvec.insert(xvec.end(), xvec2.begin(), xvec2.end());
-//        yvec.insert(yvec.end(), yvec2.begin(), yvec2.end());
-//    }
+    if (name == "region5") {
+        while (theta.back() + M_PI / 90 < 1e-10) {
+            theta.emplace_back(theta.back() + M_PI / 90);
+        }
+
+        for (const auto &item: theta) {
+            xvec1.emplace_back(5.0E-1 * std::cos(item));
+            yvec1.emplace_back(5.0E-1 * std::cos(item));
+        }
+
+        for (auto &item: xvec) {
+            if (item < -5.0E-1 - 1e-10) {
+                xvec0.emplace_back(item);
+            } else if (item > 5.0E-1 + 1e-10) {
+                xvec2.emplace_back(item);
+            }
+        }
+        for (auto &item: yvec) {
+            if (item < -5.0E-1 - 1e-10) {
+                yvec0.emplace_back(item);
+            } else if (item > 5.0E-1 + 1e-10) {
+                yvec2.emplace_back(item);
+            }
+        }
+
+        xvec = xvec0;
+        yvec = yvec0;
+
+        xvec.insert(xvec.end(), xvec1.begin(), xvec1.end());
+        yvec.insert(yvec.end(), yvec1.begin(), yvec1.end());
+
+        xvec.insert(xvec.end(), xvec2.begin(), xvec2.end());
+        yvec.insert(yvec.end(), yvec2.begin(), yvec2.end());
+    }
 
 //    auto xvec{std::vector<double>{0.000000, 0.003500, 0.007800, 0.013900, 0.021700, 0.031200, 0.042500, 0.055600,
 //                                  0.070300, 0.086800, 0.105000, 0.125000, 0.146700, 0.170100, 0.195300, 0.222200,
