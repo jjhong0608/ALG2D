@@ -5,55 +5,53 @@
 #ifndef ALG2D_VECTOR_H
 #define ALG2D_VECTOR_H
 
-
 #include "util.h"
 
 namespace ALG {
-    class vector : public std::vector<double> {
-    public:
-        vector();
+class vector : public std::vector<double> {
+ public:
+  vector();
 
-        explicit vector(const std::vector<double> &x);
+  explicit vector(const std::vector<double> &x);
 
-        virtual ~vector();
+  virtual ~vector();
 
-        double norm();
+  double norm();
 
-        double dot(const vector &src);
+  double dot(const vector &src);
 
-        vector cross(const vector &src);
+  vector cross(const vector &src);
 
-        vector unitVector();
+  vector unitVector();
 
-        vector operator+(const vector &src);
+  vector operator+(const vector &src);
 
-        vector operator-(const vector &src);
+  vector operator-(const vector &src);
 
-        vector operator*(double d);
+  vector operator*(double d);
 
-        vector operator/(double d);
+  vector operator/(double d);
 
-        vector operator+(const vector &src) const;
+  vector operator+(const vector &src) const;
 
-        vector operator-(const vector &src) const;
+  vector operator-(const vector &src) const;
 
-        vector operator*(double d) const;
+  vector operator*(double d) const;
 
-        vector operator/(double d) const;
+  vector operator/(double d) const;
 
-        double operator*(const vector &src);
+  double operator*(const vector &src);
 
-        vector &operator+=(const vector &src);
+  vector &operator+=(const vector &src);
 
-        vector &operator-=(const vector &src);
+  vector &operator-=(const vector &src);
 
-        vector &operator*=(double d);
+  vector &operator*=(double d);
 
-        bool operator<(const vector &src);
+  bool operator<(const vector &src);
 
-        bool operator>(const vector &src);
-    };
-}
+  bool operator>(const vector &src);
+};
+}// namespace ALG
 
-
-#endif //ALG2D_VECTOR_H
+#endif// ALG2D_VECTOR_H

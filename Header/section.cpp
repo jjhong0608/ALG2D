@@ -9,9 +9,9 @@ ALG::section::section() = default;
 ALG::section::section(std::string name) : name(std::move(name)) {}
 
 const std::string &ALG::section::getName() const {
-    return name;
+  return name;
 }
 
 void ALG::section::setName(const std::string &string) {
-    section::name = string;
+  section::name = string;
 }

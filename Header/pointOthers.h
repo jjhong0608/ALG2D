@@ -8,65 +8,62 @@
 #include "point.h"
 
 namespace ALG {
-    class boundaryLine2D;
+class boundaryLine2D;
 
-    class boundaryPoint : public point {
-    private:
-        char condition{}, IO{};
-        double boundary_value{};
-        boundaryLine2D *line{};
-        vector normal{};
-    public:
-        boundaryPoint();
+class boundaryPoint : public point {
+ private:
+  char condition{}, IO{};
+  double boundary_value{};
+  boundaryLine2D *line{};
+  vector normal{};
 
-        explicit boundaryPoint(char io);
+ public:
+  boundaryPoint();
 
-        explicit boundaryPoint(boundaryLine2D *line);
+  explicit boundaryPoint(char io);
 
-        boundaryPoint(char condition, char io, double boundaryValue);
+  explicit boundaryPoint(boundaryLine2D *line);
 
-        boundaryPoint(char condition, char io, double boundaryValue, boundaryLine2D *line);
+  boundaryPoint(char condition, char io, double boundaryValue);
 
-        boundaryPoint(char condition, char io, double boundaryValue, boundaryLine2D *line, const vector& normal);
+  boundaryPoint(char condition, char io, double boundaryValue, boundaryLine2D *line);
 
-        boundaryPoint(const std::vector<double> &x, char io);
+  boundaryPoint(char condition, char io, double boundaryValue, boundaryLine2D *line, const vector &normal);
 
-        boundaryPoint(const std::vector<double> &x, boundaryLine2D *line);
+  boundaryPoint(const std::vector<double> &x, char io);
 
-        boundaryPoint(const std::vector<double> &x, char condition, char io, double boundaryValue);
+  boundaryPoint(const std::vector<double> &x, boundaryLine2D *line);
 
-        boundaryPoint(const std::vector<double> &x, char condition, char io, double boundaryValue,
-                      boundaryLine2D *line);
+  boundaryPoint(const std::vector<double> &x, char condition, char io, double boundaryValue);
 
-        boundaryPoint(const std::vector<double> &x, char condition, char io, double boundaryValue, boundaryLine2D *line,
-                      const vector& normal);
+  boundaryPoint(const std::vector<double> &x, char condition, char io, double boundaryValue, boundaryLine2D *line);
 
-        [[nodiscard]] char getCondition() const;
+  boundaryPoint(const std::vector<double> &x, char condition, char io, double boundaryValue, boundaryLine2D *line, const vector &normal);
 
-        void setCondition(char i);
+  [[nodiscard]] char getCondition() const;
 
-        [[nodiscard]] char getIo() const;
+  void setCondition(char i);
 
-        void setIo(char io);
+  [[nodiscard]] char getIo() const;
 
-        [[nodiscard]] double getBoundaryValue() const;
+  void setIo(char io);
 
-        void setBoundaryValue(double boundaryValue);
+  [[nodiscard]] double getBoundaryValue() const;
 
-        [[nodiscard]] vector &getNormal();
+  void setBoundaryValue(double boundaryValue);
 
-        [[nodiscard]] const vector &getNormal() const;
+  [[nodiscard]] vector &getNormal();
 
-        void setNormal(const vector &src);
+  [[nodiscard]] const vector &getNormal() const;
 
-        [[nodiscard]] boundaryLine2D *getLine() const;
+  void setNormal(const vector &src);
 
-        void setLine(boundaryLine2D *pLine2D);
+  [[nodiscard]] boundaryLine2D *getLine() const;
 
-        ALG::boundaryPoint *isinBoundary();
+  void setLine(boundaryLine2D *pLine2D);
 
-    };
-}
+  ALG::boundaryPoint *isinBoundary();
+};
+}// namespace ALG
 
-
-#endif //ALG2D_POINTOTHERS_H
+#endif// ALG2D_POINTOTHERS_H

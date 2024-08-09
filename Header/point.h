@@ -8,26 +8,25 @@
 #include "vector.h"
 
 namespace ALG {
-    class point : public ALG::vector {
-    private:
-        int idx{-1};
-    public:
-        point();
+class point : public ALG::vector {
+ private:
+  int idx{-1};
 
-        explicit point(int idx);
+ public:
+  point();
 
-        explicit point(const std::vector<double> &x);
+  explicit point(int idx);
 
-        point(const std::vector<double> &x, int idx);
+  explicit point(const std::vector<double> &x);
 
-        ~point() override;
+  point(const std::vector<double> &x, int idx);
 
-        [[nodiscard]] int getIdx() const;
+  ~point() override;
 
-        void setIdx(int i);
-    };
-}
+  [[nodiscard]] int getIdx() const;
 
+  void setIdx(int i);
+};
+}// namespace ALG
 
-
-#endif //ALG2D_POINT_H
+#endif// ALG2D_POINT_H

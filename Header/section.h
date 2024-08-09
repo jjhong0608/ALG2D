@@ -5,24 +5,23 @@
 #ifndef ALG2D_SECTION_H
 #define ALG2D_SECTION_H
 
-
 #include "lineOthers.h"
 
 namespace ALG {
-    class section : public std::vector<boundaryLine2D> {
-    private:
-        std::string name{};
-    public:
-        section();
+class section : public std::vector<boundaryLine2D> {
+ private:
+  std::string name{};
 
-        explicit section(std::string name);
+ public:
+  section();
 
-        [[nodiscard]] const std::string &getName() const;
+  explicit section(std::string name);
 
-        void setName(const std::string &string);
-    };
+  [[nodiscard]] const std::string &getName() const;
 
-}
+  void setName(const std::string &string);
+};
 
+}// namespace ALG
 
-#endif //ALG2D_SECTION_H
+#endif// ALG2D_SECTION_H

@@ -15,9 +15,9 @@ ALG::point::point(const std::vector<double> &x, int idx) : vector(x), idx(idx) {
 ALG::point::~point() = default;
 
 int ALG::point::getIdx() const {
-    return idx;
+  return idx;
 }
 
 void ALG::point::setIdx(int i) {
-    point::idx = i;
+  point::idx = i;
 }

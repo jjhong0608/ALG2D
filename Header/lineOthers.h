@@ -9,103 +9,105 @@
 #include "pointOthers.h"
 
 namespace ALG {
-    class boundaryPoint;
+class boundaryPoint;
 
-    class axialLine2D : public line2D {
-    private:
-        int idx{-1};
-        std::vector<point *> pts{};
-        std::array<boundaryPoint *, 2> boundaries{};
-    public:
-        axialLine2D(const boundaryPoint &sp, const boundaryPoint &ep);
+class axialLine2D : public line2D {
+ private:
+  int idx{-1};
+  std::vector<point *> pts{};
+  std::array<boundaryPoint *, 2> boundaries{};
 
-        int getIdx() const;
+ public:
+  axialLine2D(const boundaryPoint &sp, const boundaryPoint &ep);
 
-        void setIdx(int i);
+  int getIdx() const;
 
-        [[nodiscard]] std::vector<point *> &getPts();
+  void setIdx(int i);
 
-        [[nodiscard]] const std::vector<point *> &getPts() const;
+  [[nodiscard]] std::vector<point *> &getPts();
 
-        void setPts(const std::vector<point *> &vector);
+  [[nodiscard]] const std::vector<point *> &getPts() const;
 
-        [[nodiscard]] std::array<boundaryPoint *, 2> &getBoundaries();
+  void setPts(const std::vector<point *> &vector);
 
-        [[nodiscard]] const std::array<boundaryPoint *, 2> &getBoundaries() const;
+  [[nodiscard]] std::array<boundaryPoint *, 2> &getBoundaries();
 
-        void setBoundaries(const std::array<boundaryPoint *, 2> &array);
+  [[nodiscard]] const std::array<boundaryPoint *, 2> &getBoundaries() const;
 
-        void isinBoundary(std::deque<boundaryPoint> *boundaryPts);
-    };
+  void setBoundaries(const std::array<boundaryPoint *, 2> &array);
 
-    class gridLine2D : public line2D {
-    private:
-        std::vector<point *> pts{};
-        std::vector<boundaryPoint> cross_pts{}, cross_section_pts{};
-        std::vector<axialLine2D> axial_lines{};
-    public:
-        [[nodiscard]] std::vector<point *> &getPts();
+  void isinBoundary(std::deque<boundaryPoint> *boundaryPts);
+};
 
-        [[nodiscard]] const std::vector<point *> &getPts() const;
+class gridLine2D : public line2D {
+ private:
+  std::vector<point *> pts{};
+  std::vector<boundaryPoint> cross_pts{}, cross_section_pts{};
+  std::vector<axialLine2D> axial_lines{};
 
-        void setPts(const std::vector<point *> &vector);
+ public:
+  [[nodiscard]] std::vector<point *> &getPts();
 
-        [[nodiscard]] std::vector<boundaryPoint> &getCrossPts();
+  [[nodiscard]] const std::vector<point *> &getPts() const;
 
-        [[nodiscard]] const std::vector<boundaryPoint> &getCrossPts() const;
+  void setPts(const std::vector<point *> &vector);
 
-        void setCrossPts();
+  [[nodiscard]] std::vector<boundaryPoint> &getCrossPts();
 
-        void setCrossPts(const std::vector<boundaryPoint> &crossPts);
+  [[nodiscard]] const std::vector<boundaryPoint> &getCrossPts() const;
 
-        [[nodiscard]] std::vector<boundaryPoint> &getCrossSectionPts();
+  void setCrossPts();
 
-        [[nodiscard]] const std::vector<boundaryPoint> &getCrossSectionPts() const;
+  void setCrossPts(const std::vector<boundaryPoint> &crossPts);
 
-        void setCrossSectionPts(const std::vector<boundaryPoint> &crossSectionPts);
+  [[nodiscard]] std::vector<boundaryPoint> &getCrossSectionPts();
 
-        [[nodiscard]] std::vector<axialLine2D> &getAxialLines();
+  [[nodiscard]] const std::vector<boundaryPoint> &getCrossSectionPts() const;
 
-        [[nodiscard]] const std::vector<axialLine2D> &getAxialLines() const;
+  void setCrossSectionPts(const std::vector<boundaryPoint> &crossSectionPts);
 
-        void setAxialLines(const std::vector<axialLine2D> &axialLines);
+  [[nodiscard]] std::vector<axialLine2D> &getAxialLines();
 
-        void sortCrossSectionPts(double sign);
+  [[nodiscard]] const std::vector<axialLine2D> &getAxialLines() const;
 
-        void sortCrossPts();
+  void setAxialLines(const std::vector<axialLine2D> &axialLines);
 
-        void makeAxialLine();
+  void sortCrossSectionPts(double sign);
 
-        void makeAxialLine(double h);
-    };
+  void sortCrossPts();
 
-    class boundaryLine2D : public line2D {
-    private:
-        char condition{};
-        double boundary_value{};
-        std::vector<boundaryPoint *> boundary_points{};
-    public:
-        boundaryLine2D();
+  void makeAxialLine();
 
-        boundaryLine2D(const vector &start, const vector &anEnd, char condition, double boundaryValue);
+  void makeAxialLine(double h);
+};
 
-        boundaryLine2D(double s0, double s1, double e0, double e1, char condition, double boundaryValue);
+class boundaryLine2D : public line2D {
+ private:
+  char condition{};
+  double boundary_value{};
+  std::vector<boundaryPoint *> boundary_points{};
 
-        [[nodiscard]] char getCondition() const;
+ public:
+  boundaryLine2D();
 
-        void setCondition(char i);
+  boundaryLine2D(const vector &start, const vector &anEnd, char condition, double boundaryValue);
 
-        [[nodiscard]] double getBoundaryValue() const;
+  boundaryLine2D(double s0, double s1, double e0, double e1, char condition, double boundaryValue);
 
-        void setBoundaryValue(double boundaryValue);
+  [[nodiscard]] char getCondition() const;
 
-        [[nodiscard]] std::vector<boundaryPoint *> &getBoundaryPoints();
+  void setCondition(char i);
 
-        [[nodiscard]] const std::vector<boundaryPoint *> &getBoundaryPoints() const;
+  [[nodiscard]] double getBoundaryValue() const;
 
-        void setBoundaryPoints(const std::vector<boundaryPoint *> &boundaryPoints);
-    };
-}
+  void setBoundaryValue(double boundaryValue);
 
+  [[nodiscard]] std::vector<boundaryPoint *> &getBoundaryPoints();
 
-#endif //ALG2D_LINEOTHERS_H
+  [[nodiscard]] const std::vector<boundaryPoint *> &getBoundaryPoints() const;
+
+  void setBoundaryPoints(const std::vector<boundaryPoint *> &boundaryPoints);
+};
+}// namespace ALG
+
+#endif// ALG2D_LINEOTHERS_H

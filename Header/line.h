@@ -8,51 +8,50 @@
 #include "matrix.h"
 
 namespace ALG {
-    class line2D {
-    private:
-        vector start{}, end{}, normal{}, tangent{};
-        double length{};
-        bool iscloseline{false};
+class line2D {
+ private:
+  vector start{}, end{}, normal{}, tangent{};
+  double length{};
+  bool iscloseline{false};
 
-    public:
-        line2D();
+ public:
+  line2D();
 
-        line2D(const vector& start, const vector &anEnd);
+  line2D(const vector &start, const vector &anEnd);
 
-        line2D(double s0, double s1, double e0, double e1);
+  line2D(double s0, double s1, double e0, double e1);
 
-        void calcProperties();
+  void calcProperties();
 
-        [[nodiscard]] vector &getStart();
+  [[nodiscard]] vector &getStart();
 
-        [[nodiscard]] const vector &getStart() const;
+  [[nodiscard]] const vector &getStart() const;
 
-        void setStart(const vector &vector);
+  void setStart(const vector &vector);
 
-        [[nodiscard]] vector &getAnEnd();
+  [[nodiscard]] vector &getAnEnd();
 
-        [[nodiscard]] const vector &getAnEnd() const;
+  [[nodiscard]] const vector &getAnEnd() const;
 
-        void setAnEnd(const vector &vector);
+  void setAnEnd(const vector &vector);
 
-        [[nodiscard]] vector &getNormal();
+  [[nodiscard]] vector &getNormal();
 
-        [[nodiscard]] const vector &getNormal() const;
+  [[nodiscard]] const vector &getNormal() const;
 
-        [[nodiscard]] vector &getTangent();
+  [[nodiscard]] vector &getTangent();
 
-        [[nodiscard]] const vector &getTangent() const;
+  [[nodiscard]] const vector &getTangent() const;
 
-        [[nodiscard]] double getLength() const;
+  [[nodiscard]] double getLength() const;
 
-        [[nodiscard]] bool getIscloseLine() const;
+  [[nodiscard]] bool getIscloseLine() const;
 
-        bool iscross(const line2D &src, ALG::vector &vec);
+  bool iscross(const line2D &src, ALG::vector &vec);
 
-        virtual ~line2D();
-    };
+  virtual ~line2D();
+};
 
-}
+}// namespace ALG
 
-
-#endif //ALG2D_LINE_H
+#endif// ALG2D_LINE_H

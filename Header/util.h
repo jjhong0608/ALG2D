@@ -5,25 +5,26 @@
 #ifndef ALG2D_UTIL_H
 #define ALG2D_UTIL_H
 
-
-#include <cstdio>
-#include <string>
-#include <cstring>
-#include <iostream>
+#include <algorithm>
 #include <array>
 #include <cmath>
-#include <vector>
-#include <unordered_map>
-#include <fstream>
-#include <limits>
-#include <sstream>
-#include <algorithm>
-#include <memory>
-#include <iomanip>
-#include <utility>
-#include <deque>
 #include <cstdarg>
+#include <cstdio>
+#include <cstring>
+#include <deque>
+#include <filesystem>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <limits>
+#include <memory>
+#include <omp.h>
 #include <random>
+#include <sstream>
+#include <string>
+#include <unordered_map>
+#include <utility>
+#include <vector>
 
 #ifndef UNITVALUE
 #define UNITVALUE 1.0000000000000000E0
@@ -39,22 +40,21 @@
 #endif
 
 namespace ALG {
-    bool isclose(double x, double y, double eps = 1.0E-10);
+bool isclose(double x, double y, double eps = 1.0E-10);
 
-    bool iszero(double x, double eps = 1.0E-10);
+bool iszero(double x, double eps = 1.0E-10);
 
-    bool ispositive(double x, double eps = 1.0E-10);
+bool ispositive(double x, double eps = 1.0E-10);
 
-    bool isnegative(double x, double eps = 1.0E-10);
+bool isnegative(double x, double eps = 1.0E-10);
 
-    bool ispositivezero(double x, double eps = 1.0E-10);
+bool ispositivezero(double x, double eps = 1.0E-10);
 
-    bool isnegativezero(double x, double eps = 1.0E-10);
+bool isnegativezero(double x, double eps = 1.0E-10);
 
-    void printError(const std::string &functionName);
+void printError(const std::string &functionName);
 
-    void printError(const char *functionName, const char *fmt, ...);
-}
+void printError(const char *functionName, const char *fmt, ...);
+}// namespace ALG
 
-
-#endif //ALG2D_UTIL_H
+#endif// ALG2D_UTIL_H
